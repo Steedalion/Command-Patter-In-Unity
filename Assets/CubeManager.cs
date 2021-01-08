@@ -20,9 +20,13 @@ public class CubeManager : MonoBehaviour
 			
 			if(Physics.Raycast(ray, out hitInfo))
 			{
-				//hitInfo.collider.GetComponent<MeshRenderer>().material.color = new Color(Random.value,Random.value, Random.value);
-				ICommand clickCommand = new ClickCommand(hitInfo.collider.gameObject, new Color(Random.value,Random.value, Random.value));
-				clickCommand.Execute();
+				if(hitInfo.collider.CompareTag("Cube")){
+					
+					//hitInfo.collider.GetComponent<MeshRenderer>().material.color = new Color(Random.value,Random.value, Random.value);
+					ICommand clickCommand = new ClickCommand(hitInfo.collider.gameObject, new Color(Random.value,Random.value, Random.value));
+					clickCommand.Execute();
+					CommandManager.Instance.Add(clickCommand);
+				}
 			}
 		}
         
