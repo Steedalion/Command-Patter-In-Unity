@@ -4,10 +4,11 @@ using UnityEngine;
 using System.Linq;
 public class CommandManager : MonoBehaviour
 {
-	
+	[Range(0,1)]
+	public float delay = 1;
 	List<ICommand> commandBuffer = new List<ICommand>();
 	private static CommandManager instance;
-	WaitForSeconds wait = new WaitForSeconds(1);
+	WaitForSeconds wait;
 	public static CommandManager Instance
 	{
 		get {
@@ -21,6 +22,7 @@ public class CommandManager : MonoBehaviour
 	
 	private void Awake()
 	{
+		wait = new WaitForSeconds(delay);
 		instance = this;
 	}
 	

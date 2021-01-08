@@ -1,4 +1,4 @@
-# Unity Prototype Template
+# Command pattern in Unity
 ## How to use:
 1. Go to project folder
 
